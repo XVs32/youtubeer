@@ -13,7 +13,7 @@ const httpTimeout = process.env.KARAOKE_TIMEOUT ? +process.env.KARAOKE_TIMEOUT |
 
 export const YTSearch = async (query: string, maxResults: number) => {
   try {
-    const results = await YouTubeSearch(`${query} karaoke`, { limit: 50 })
+    const results = await YouTubeSearch(`${query}`)
     return results.items
       .filter((item) => item.type === 'video' && !item.isLive)
       .slice(0, maxResults)
